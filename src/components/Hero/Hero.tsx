@@ -84,7 +84,7 @@ export function Hero() {
                             Ver mis proyectos
                         </motion.button>
                         <motion.a
-                            href="/cv-santiago-alvarez.pdf"
+                            href="/HV Santiago Álvarez Gutiérrez.pdf"
                             className="btn btn-secondary"
                             download
                             whileHover={{ scale: 1.02 }}
