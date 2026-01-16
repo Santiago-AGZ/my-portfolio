@@ -4,7 +4,6 @@ import { Mail, Phone, MapPin, Github, Linkedin, Copy, Check, Send } from 'lucide
 import emailjs from '@emailjs/browser';
 import { personalInfo } from '../../data/portfolio';
 import { useClipboard } from '../../hooks/useClipboard';
-import env from '../../config/env';
 import './Contact.css';
 
 
@@ -56,11 +55,12 @@ export function Contact() {
 
         try {
             await emailjs.send(
-                env.emailjs.serviceId,
-                env.emailjs.templateId,
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 templateParams,
-                env.emailjs.publicKey
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
+
 
 
             setSubmitStatus('success');
