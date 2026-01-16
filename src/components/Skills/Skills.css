@@ -2,6 +2,9 @@
   position: relative;
 }
 
+/* =========================
+   GRID PRINCIPAL
+========================= */
 .skills-grid {
   display: grid;
   gap: var(--space-6);
@@ -20,7 +23,9 @@
   }
 }
 
-/* Skill Category Card */
+/* =========================
+   SKILL CATEGORY CARD
+========================= */
 .skill-category {
   padding: var(--space-6);
   text-align: center;
@@ -35,40 +40,73 @@
   letter-spacing: 0.05em;
 }
 
+/* =========================
+   ICONOS INDIVIDUALES
+========================= */
 .skill-icons-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
+  justify-content: center;
 }
 
-.skill-icons-image {
-  max-width: 100%;
-  height: auto;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-  transition: transform var(--transition-base);
-}
-
-.skill-category:hover .skill-icons-image {
-  transform: scale(1.05);
-}
-
-.skill-names {
+.skill-icons-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-2);
+  gap: var(--space-4);
 }
 
-.skill-name {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  background: var(--color-bg-tertiary);
-  padding: var(--space-1) var(--space-2);
+.skill-icon {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+
+}
+
+.skill-icon img {
+  width: 100%;
+  height: 100%;
+  transition: transform var(--transition-fast);
+}
+
+.skill-icon:hover img {
+  transform: scale(1.15);
+}
+
+/* =========================
+   TOOLTIP (NOMBRE EN HOVER)
+========================= */
+.skill-tooltip {
+  position: absolute;
+  bottom: -36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 4px 8px;
   border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast),
+              transform var(--transition-fast);
+  z-index: 10;
 }
 
-/* Soft Skills */
+.skill-icon:hover .skill-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Tooltip en tema claro */
+[data-theme="light"] .skill-tooltip {
+  background: rgba(30, 30, 30, 0.9);
+}
+
+/* =========================
+   SOFT SKILLS
+========================= */
 .soft-skills {
   padding: var(--space-6);
   text-align: center;
