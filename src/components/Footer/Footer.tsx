@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUp, Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { navigation, personalInfo } from '../../data/portfolio';
 import './Footer.css';
 
@@ -58,8 +58,7 @@ export function Footer() {
                 {/* Bottom Bar */}
                 <div className="footer-bottom">
                     <p className="copyright">
-                        © {currentYear} {personalInfo.name}. Hecho con{' '}
-                        <Heart size={14} className="heart-icon" /> en Colombia.
+                        © {currentYear} {personalInfo.name}
                     </p>
 
                     <motion.button
