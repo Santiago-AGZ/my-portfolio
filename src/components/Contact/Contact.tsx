@@ -4,12 +4,9 @@ import { Mail, Phone, MapPin, Github, Linkedin, Copy, Check, Send } from 'lucide
 import emailjs from '@emailjs/browser';
 import { personalInfo } from '../../data/portfolio';
 import { useClipboard } from '../../hooks/useClipboard';
+import env from '../../config/env';
 import './Contact.css';
 
-// EmailJS Configuration
-const EMAILJS_SERVICE_ID = 'service_u5gdfq5';
-const EMAILJS_TEMPLATE_ID = 'template_ewgdvy6';
-const EMAILJS_PUBLIC_KEY = 'IGdzMhCRA4ec_8SEL';
 
 export function Contact() {
     const ref = useRef(null);
@@ -59,11 +56,12 @@ export function Contact() {
 
         try {
             await emailjs.send(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
+                env.emailjs.serviceId,
+                env.emailjs.templateId,
                 templateParams,
-                EMAILJS_PUBLIC_KEY
+                env.emailjs.publicKey
             );
+
 
             setSubmitStatus('success');
             setFormData({ name: '', email: '', subject: '', message: '' });
@@ -108,7 +106,7 @@ export function Contact() {
                     <h2>
                         <span className="gradient-text">Contacto</span>
                     </h2>
-                    <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+                    <p>¿Quieres saber más o ponerte en contacto conmigo? ¡Hablemos!</p>
                 </motion.div>
 
                 <motion.div
