@@ -53,15 +53,6 @@ export function Footer() {
                             ))}
                         </ul>
                     </div>
-
-                    {/* Contact Info */}
-                    <div className="footer-contact">
-                        <h4>Contacto</h4>
-                        <p>{personalInfo.location}</p>
-                        <a href={`mailto:${personalInfo.email.primary}`} className="footer-email">
-                            Enviar email
-                        </a>
-                    </div>
                 </div>
 
                 {/* Bottom Bar */}

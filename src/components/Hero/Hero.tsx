@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, FileText, FolderOpen } from 'lucide-react';
+import {FileText, FolderOpen } from 'lucide-react';
 import { personalInfo } from '../../data/portfolio';
 import './Hero.css';
 
@@ -94,22 +94,6 @@ export function Hero() {
                             Descargar CV
                         </motion.a>
                     </motion.div>
-                </motion.div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    className="hero-scroll-indicator"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.2, duration: 0.6 }}
-                >
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-                    >
-                        <ArrowDown size={24} />
-                    </motion.div>
-                    <span>Scroll</span>
                 </motion.div>
             </div>
         </section>

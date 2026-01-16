@@ -38,8 +38,6 @@ interface SkillCategoryProps {
 }
 
 function SkillCategory({ title, icons, theme, delay }: SkillCategoryProps) {
-    const iconUrl = `https://skillicons.dev/icons?i=${icons.join(',')}&theme=${theme}`;
-
     return (
         <motion.div
             className="skill-category glass-card"
@@ -49,24 +47,27 @@ function SkillCategory({ title, icons, theme, delay }: SkillCategoryProps) {
             transition={{ duration: 0.5, delay }}
         >
             <h3>{title}</h3>
+
             <div className="skill-icons-wrapper">
-                <img
-                    src={iconUrl}
-                    alt={`${title} skills`}
-                    className="skill-icons-image"
-                    loading="lazy"
-                />
-                <div className="skill-names">
-                    {icons.map((icon) => (
-                        <span key={icon} className="skill-name">
-                            {skillNames[icon] || icon}
-                        </span>
+                <div className="skill-icons-grid">
+                    {icons.map(icon => (
+                        <div key={icon} className="skill-icon">
+                            <img
+                                src={`https://skillicons.dev/icons?i=${icon}&theme=${theme}`}
+                                alt={skillNames[icon] || icon}
+                                loading="lazy"
+                            />
+                            <span className="skill-tooltip">
+                                {skillNames[icon] || icon}
+                            </span>
+                        </div>
                     ))}
                 </div>
             </div>
         </motion.div>
     );
 }
+
 
 export function Skills() {
     const ref = useRef(null);
@@ -113,12 +114,11 @@ export function Skills() {
                     <h3>Soft Skills</h3>
                     <div className="soft-skills-list">
                         {[
-                            'Trabajo en equipo',
-                            'Metodología Scrum',
-                            'Resolución de problemas',
-                            'Comunicación efectiva',
-                            'Aprendizaje continuo',
-                            'Gestión del tiempo',
+                            'Trabajo colaborativo en equipos de desarrollo',
+                            'Aplicación de la metodología ágil Scrum',
+                            'Análisis y resolución de problemas técnicos',
+                            'Aprendizaje autónomo de nuevas tecnologías',
+
                         ].map((skill, index) => (
                             <motion.span
                                 key={skill}
