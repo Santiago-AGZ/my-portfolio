@@ -13,7 +13,7 @@ function App() {
     <ThemeProvider>
       <div className="bg-gradient-radial" />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />
@@ -24,5 +24,6 @@ function App() {
     </ThemeProvider>
   );
 }
+
 
 export default App;
