@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowUp, Heart } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { navigation, personalInfo } from '../../data/portfolio';
 import './Footer.css';
 
