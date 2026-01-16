@@ -3,7 +3,6 @@ import type {
     AboutMe,
     Education,
     ComplementaryEducation,
-    Skills,
     Project,
     NavigationItem,
 } from '../types/portfolio';
