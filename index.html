@@ -10,17 +10,55 @@
     <meta name="description" content="Portafolio profesional de Santiago Álvarez Gutiérrez. Tecnólogo en Desarrollo de Software especializado en React, TypeScript y tecnologías cloud. Ubicado en Cali, Colombia." />
     <meta name="keywords" content="desarrollador, software, React, TypeScript, portfolio, Cali, Colombia, frontend, fullstack" />
     <meta name="author" content="Santiago Álvarez Gutiérrez" />
+    <link rel="canonical" href="https://santiago-portfolio.vercel.app/" />
     
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://santiago-portfolio.vercel.app/" />
     <meta property="og:title" content="Santiago Álvarez Gutiérrez | Desarrollador de Software" />
     <meta property="og:description" content="Tecnólogo en Desarrollo de Software especializado en aplicaciones web modernas con React, TypeScript y tecnologías cloud." />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content="https://santiago-portfolio.vercel.app/og-image.png" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Santiago Álvarez Portfolio" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Santiago Álvarez Gutiérrez | Desarrollador de Software" />
     <meta name="twitter:description" content="Tecnólogo en Desarrollo de Software especializado en React, TypeScript y tecnologías cloud." />
+    <meta name="twitter:image" content="https://santiago-portfolio.vercel.app/og-image.png" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Santiago Álvarez Gutiérrez",
+      "jobTitle": "Tecnólogo en Desarrollo de Software",
+      "url": "https://santiago-portfolio.vercel.app",
+      "sameAs": [
+        "https://github.com/Santiago-AGZ",
+        "https://www.linkedin.com/in/santiago-alvarez-gutierrez-033359375"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Santiago de Cali",
+        "addressRegion": "Valle del Cauca",
+        "addressCountry": "CO"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Universidad del Valle"
+      },
+      "knowsAbout": [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Web Development",
+        "Frontend Development",
+        "Fullstack Development"
+      ]
+    }
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,9 +66,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Theme Color -->
-    <meta name="theme-color" content="#0F172A" />
+    <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)" />
+    
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
   </head>
   <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
