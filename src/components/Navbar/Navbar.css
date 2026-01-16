@@ -32,6 +32,9 @@
   border-radius: var(--radius-lg);
   background: var(--color-accent-gradient);
   transition: all var(--transition-base);
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
 .navbar-logo:hover {
@@ -53,7 +56,7 @@
   list-style: none;
 }
 
-.navbar-links a {
+.nav-link {
   display: block;
   padding: var(--space-2) var(--space-4);
   font-size: 0.9375rem;
@@ -61,11 +64,20 @@
   color: var(--color-text-secondary);
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
 }
 
-.navbar-links a:hover {
+.nav-link:hover {
   color: var(--color-text-primary);
   background: var(--color-bg-tertiary);
+}
+
+.nav-link:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
 }
 
 /* Actions */
@@ -85,11 +97,19 @@
   color: var(--color-text-secondary);
   transition: all var(--transition-fast);
   background: var(--color-bg-tertiary);
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .theme-toggle:hover {
   color: var(--color-accent-primary);
   background: var(--color-bg-elevated);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
 }
 
 .menu-toggle {
@@ -101,6 +121,14 @@
   border-radius: var(--radius-lg);
   color: var(--color-text-primary);
   background: var(--color-bg-tertiary);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
 }
 
 /* Mobile Menu */
@@ -131,16 +159,38 @@
   border-bottom: none;
 }
 
-.mobile-menu-links a {
+.mobile-nav-link {
   display: block;
+  width: 100%;
+  text-align: left;
   padding: var(--space-4);
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-text-primary);
   transition: all var(--transition-fast);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
 }
 
-.mobile-menu-links a:hover {
+.mobile-nav-link:hover {
   color: var(--color-accent-primary);
   padding-left: var(--space-6);
+}
+
+.mobile-nav-link:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: -2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: var(--space-3) 0;
+  }
+  
+  .navbar.scrolled {
+    padding: var(--space-2) 0;
+  }
 }

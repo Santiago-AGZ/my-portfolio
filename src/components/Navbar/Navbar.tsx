@@ -28,10 +28,26 @@ export function Navbar() {
 
     const handleNavClick = (href: string) => {
         setIsOpen(false);
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
+
+        // Pequeño delay para permitir que el menú se cierre
+        setTimeout(() => {
+            // Remover el # del href
+            const sectionId = href.replace('#', '');
+            const element = document.getElementById(sectionId);
+            
+            if (element) {
+                const navbarHeight = 80;
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                const offsetPosition = elementPosition - navbarHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            } else {
+                console.warn(`Sección no encontrada: ${sectionId}`);
+            }
+        }, 100);
     };
 
     return (
@@ -42,18 +58,15 @@ export function Navbar() {
             transition={{ duration: 0.5, ease: 'easeOut' }}
         >
             <nav className="navbar-container container">
-                <motion.a
-                    href="#inicio"
+                <motion.button
                     className="navbar-logo"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick('#inicio');
-                    }}
+                    onClick={() => handleNavClick('#inicio')}
+                    aria-label="Ir al inicio"
                 >
                     <span className="logo-text">SA</span>
-                </motion.a>
+                </motion.button>
 
                 {/* Desktop Navigation */}
                 <ul className="navbar-links hide-mobile">
@@ -64,15 +77,13 @@ export function Navbar() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                         >
-                            <a
-                                href={item.href}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    handleNavClick(item.href);
-                                }}
+                            <button
+                                onClick={() => handleNavClick(item.href)}
+                                className="nav-link"
+                                type="button"
                             >
                                 {item.label}
-                            </a>
+                            </button>
                         </motion.li>
                     ))}
                 </ul>
@@ -84,6 +95,7 @@ export function Navbar() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+                        type="button"
                     >
                         <AnimatePresence mode="wait" initial={false}>
                             <motion.div
@@ -103,6 +115,7 @@ export function Navbar() {
                         onClick={() => setIsOpen(!isOpen)}
                         whileTap={{ scale: 0.9 }}
                         aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+                        type="button"
                     >
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </motion.button>
@@ -137,15 +150,13 @@ export function Navbar() {
                                         closed: { opacity: 0, y: 20 },
                                     }}
                                 >
-                                    <a
-                                        href={item.href}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            handleNavClick(item.href);
-                                        }}
+                                    <button
+                                        onClick={() => handleNavClick(item.href)}
+                                        className="mobile-nav-link"
+                                        type="button"
                                     >
                                         {item.label}
-                                    </a>
+                                    </button>
                                 </motion.li>
                             ))}
                         </motion.ul>
