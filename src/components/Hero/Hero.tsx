@@ -50,7 +50,7 @@ export function Hero() {
                         <div className="hero-photo-glow" />
                         <div className="hero-photo">
                             <div className="hero-photo-placeholder">
-                                <img src="/foto-santiago.png" alt="Santiago Álvarez" />
+                                <img src="/foto_santiago.png" alt="Santiago Álvarez" />
                             </div>
                         </div>
                     </motion.div>
